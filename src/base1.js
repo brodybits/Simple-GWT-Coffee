@@ -1,6 +1,6 @@
 
 /**
- *  Source:
+ *  Class function adapted from: http://orangoo.com/labs/AJS/
 AJS JavaScript library
     A very small library with a lot of functionality
 AUTHOR
@@ -70,5 +70,6 @@ function $NS(ns)
 
 $NS("gwt");
 
+// Base class, extended for all other GWT classes:
 gwt.Base = new AJS$Class({});
 
