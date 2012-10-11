@@ -1,0 +1,5 @@
+
+alert ('starting test');
+
+gwt.ui.RootPanel.get().add(new gwt.ui.Label("test"));
+
