@@ -1,5 +1,5 @@
 
-# Copyright 2010 Chris Brody
+# Copyright 2012 Chris Brody
 #
 # Copyright 2006 James Tauber and contributors
 # Copyright (C) 2009 Luke Kenneth Casson Leighton <lkcl@lkcl.net>
@@ -16,65 +16,27 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-`/* START of Javascript */
-
-/*
 gwt.ui.DockDirection =
     CENTER  : "center"
     EAST    : "east"
     NORTH   : "north"
     SOUTH   : "south"
     WEST    : "west"
-*/
 
-gwt.ui.DockDirection = {
-    CENTER  : "center",
-    EAST    : "east",
-    NORTH   : "north",
-    SOUTH   : "south",
-    WEST    : "west"
-};
 
-gwt.ui.DockTmpRow = function() {
-    return {
-        center  : 0,
-        tr      : null
-    };
-};
+MyTmpRow = ->
+    center  : 0
+    tr      : null
 
-gwt.ui.DockLayoutData = function(dir) {
-    return {
-        direction   : dir,
-        hAlign      : "left",
-        height      : "",
-        td          : null,
-        vAlign      : "top",
-        width       : ""
-    };
-};
+MyLayoutData = (dir) ->
+    direction   : dir
+    hAlign      : "left"
+    height      : ""
+    td          : null
+    vAlign      : "top"
+    width       : ""
 
-/**
-
-makeTmpRow = ->
-    return tmpRow =
-        center  : 0
-        tr      : null
-
-makeLayoutData = (dir) ->
-    return tmp =
-        direction   : dir
-        hAlign      : "left"
-        height      : ""
-        td          : null
-        vAlign      : "top"
-        width       : ""
-**/
-
-/* END of Javascript */`
-
-#class DockPanel extends gwt.ui.CellPanel
-#gwt.ui.DockPanel = class DockPanel extends gwt.ui.CellPanel
-class gwt$ui$DockPanel extends gwt.ui.CellPanel
+class gwt.ui.DockPanel extends gwt.ui.CellPanel
 
     constructor: (opts) ->
         #TODO: style/spacing/padding
@@ -93,7 +55,7 @@ class gwt$ui$DockPanel extends gwt.ui.CellPanel
             #TODO: check only 1 center
             @center = widget
 
-        layout = new gwt.ui.DockLayoutData(direction)
+        layout = new MyLayoutData(direction)
         widget.setLayoutData(layout)
 
         #TODO:
@@ -104,11 +66,9 @@ class gwt$ui$DockPanel extends gwt.ui.CellPanel
         @realizeTable(widget)
 
     realizeTable : (beingAdded) ->
-        bodyElement = this.getBody()
+        bodyElement = @getBody()
 
-        # TODO:
-        #while DOM.getChildCount(bodyElement) > 0:
-        #    DOM.removeChild(bodyElement, DOM.getChild(bodyElement, 0))
+        # XXX FUTURE: adding DOM functions to get the first child, remove child
         while (bodyElement.firstChild)
             bodyElement.removeChild(bodyElement.firstChild)
 
@@ -123,7 +83,7 @@ class gwt$ui$DockPanel extends gwt.ui.CellPanel
 
         rows = []
         for i in [0..rowCount-1]
-            rows.push new gwt.ui.DockTmpRow
+            rows.push new MyTmpRow
             rows[i].tr = DOM.createTR()
             DOM.appendChild(bodyElement, rows[i].tr)
 
@@ -177,13 +137,10 @@ class gwt$ui$DockPanel extends gwt.ui.CellPanel
     appendAndMaybeAdopt : (parent, child, beingAdded) ->
         if beingAdded != null
             if DOM.compare(child, beingAdded.getElement())
-                #CellPanel.add(beingAdded, parent)
+                # NOTE: same effect as
+                # CellPanel.add(beingAdded, parent)
                 @insert(beingAdded, parent, @getChildren().length)
                 return
 
         DOM.appendChild(parent, child)
-
-#gwt.ui.DockPanel = gwt$ui$DockPanel;
-#gwt.ui.DockPanel = DockPanel;
-gwt.ui.DockPanel = gwt$ui$DockPanel;
 
