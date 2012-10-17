@@ -15,10 +15,10 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-//var gwt$window = window;
-var gwt$window = parent;
+// DOM Namespace (using this.DOM for now):
+this.DOM = this.DOM || { }
 
-$NS("DOM");
+var gwt$window = parent;
 
 var $wnd = gwt$window;
 var $doc = $wnd.document;

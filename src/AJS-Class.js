@@ -53,6 +53,8 @@ AJS$Class.prototype = {
     }
 };//End class
 
+/** XXX GONE:
+
 // Source: http://weblogs.asp.net/mschwarz/archive/2005/08/26/423699.aspx
 function $NS(ns)
 {
@@ -68,8 +70,10 @@ function $NS(ns)
  }
 }
 
+/** XXX MOVED:
 $NS("gwt");
 
 // Base class, extended for all other GWT classes:
 gwt.Base = new AJS$Class({});
+**/
 

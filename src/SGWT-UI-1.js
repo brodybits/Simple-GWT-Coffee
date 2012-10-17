@@ -16,7 +16,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-$NS("gwt.ui");
+// SGWT-UI Namespace (using this.gwt.ui for now):
+this.gwt.ui = this.gwt.ui || { }
 
 gwt.ui.setStyleName = function(element, style, add) {
     var oldStyle = DOM.getAttribute(element, "className");
