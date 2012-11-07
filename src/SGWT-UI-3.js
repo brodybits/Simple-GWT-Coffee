@@ -16,7 +16,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-gwt.ui.Panel = gwt.ui.Widget.extend({
+SGWT.UI.Panel = SGWT.UI.Widget.extend({
     constructor : function(opts) {
         this.children = [];
 
@@ -55,9 +55,7 @@ gwt.ui.Panel = gwt.ui.Widget.extend({
     },
 
     adopt : function(widget, container) {
-//alert("a 1");
         if (container) {
-//alert("a 2");
             widget.removeFromParent();
             DOM.appendChild(container, widget.getElement());
         }
@@ -84,11 +82,10 @@ gwt.ui.Panel = gwt.ui.Widget.extend({
 
 });
 
-gwt.ui.ComplexPanel = gwt.ui.Panel.extend({
+SGWT.UI.ComplexPanel = SGWT.UI.Panel.extend({
     //  Superclass for widgets with multiple children.
 
     constructor : function(opts) {
-        //this.parent(opts);
         this.super__constructor(opts);
     },
 
@@ -113,11 +110,11 @@ gwt.ui.ComplexPanel = gwt.ui.Panel.extend({
     },
 
     insert : function(widget, container, beforeIndex) {
-//alert("i 1");
         if (widget.getParent() == this)
             return
 
         this.adopt(widget, container);
+
         //this.children.insert(beforeIndex, widget);
         if (beforeIndex < this.children.length)
             this.children.splice(beforeIndex, 0, widget);

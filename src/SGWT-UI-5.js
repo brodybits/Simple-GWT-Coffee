@@ -16,7 +16,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-gwt.ui.CellPanel = gwt.ui.ComplexPanel.extend({
+SGWT.UI.CellPanel = SGWT.UI.ComplexPanel.extend({
 
     constructor : function(opts) {
         var element = DOM.createTable();
@@ -44,7 +44,7 @@ gwt.ui.CellPanel = gwt.ui.ComplexPanel.extend({
 
 });
 
-gwt.ui.HorizontalPanel = gwt.ui.CellPanel.extend({
+SGWT.UI.HorizontalPanel = SGWT.UI.CellPanel.extend({
 
     constructor : function(opts) {
 
@@ -77,7 +77,7 @@ gwt.ui.HorizontalPanel = gwt.ui.CellPanel.extend({
         DOM.insertChild(this.tableRow, td, beforeIndex);
 
         //this.parent(widget, td, beforeIndex);
-        gwt.ui.ComplexPanel.prototype.insert.call(this, widget, td, beforeIndex);
+        SGWT.UI.ComplexPanel.prototype.insert.call(this, widget, td, beforeIndex);
 
         //TODO //self.setCellHorizontalAlignment(widget, self.horzAlign)
         //self.setCellVerticalAlignment(widget, self.vertAlign)
@@ -92,7 +92,7 @@ gwt.ui.HorizontalPanel = gwt.ui.CellPanel.extend({
 
 });
 
-gwt.ui.VerticalPanel = gwt.ui.CellPanel.extend({
+SGWT.UI.VerticalPanel = SGWT.UI.CellPanel.extend({
 
     constructor : function(opts) {
 
@@ -125,7 +125,7 @@ gwt.ui.VerticalPanel = gwt.ui.CellPanel.extend({
         DOM.appendChild(tr, td);
 
         //this.parent(widget, td, beforeIndex);
-        gwt.ui.ComplexPanel.prototype.insert.call(this, widget, td, beforeIndex);
+        SGWT.UI.ComplexPanel.prototype.insert.call(this, widget, td, beforeIndex);
 
         //TODO //self.setCellHorizontalAlignment(widget, self.horzAlign)
         //self.setCellVerticalAlignment(widget, self.vertAlign)

@@ -12,5 +12,5 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-gwt.ui.RootPanel().add (new gwt.ui.HTML "<b>test</b>")
+SGWT.UI.RootPanel().add (new SGWT.UI.HTML "<b>test</b>")
 

@@ -16,7 +16,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-gwt.ui.Label = gwt.ui.Widget.extend({
+SGWT.UI.Label = SGWT.UI.Widget.extend({
     // TODO: handlers, innertext
     constructor : function(text, wordWrap, opts) {
 //alert("new label");
@@ -31,7 +31,6 @@ gwt.ui.Label = gwt.ui.Widget.extend({
 
         //TODO ...
 
-        //this.parent(opts);
         this.super__constructor(opts);
     },
 
@@ -39,7 +38,7 @@ gwt.ui.Label = gwt.ui.Widget.extend({
 
 });
 
-gwt.ui.HTML = gwt.ui.Label.extend({
+SGWT.UI.HTML = SGWT.UI.Label.extend({
     // TODO: handlers
     constructor : function(html, wordWrap, opts) {
 //alert("new HTML");
@@ -53,7 +52,6 @@ gwt.ui.HTML = gwt.ui.Label.extend({
         if (html != null)
             DOM.setInnerHTML(this.getElement(), html);
 
-        //this.parent(null, null, opts); // TODO
         this.super__constructor(null, null, opts); // TODO
     },
 
@@ -61,7 +59,7 @@ gwt.ui.HTML = gwt.ui.Label.extend({
 
 });
 
-gwt.ui.Button = gwt.ui.Widget.extend({ // TODO, base, focuswidget, etc
+SGWT.UI.Button = SGWT.UI.Widget.extend({ // TODO, base, focuswidget, etc
     // TODO: handlers
     constructor : function(html, listener, opts) {
         //TODO: check for element arg, style
@@ -76,7 +74,6 @@ gwt.ui.Button = gwt.ui.Widget.extend({ // TODO, base, focuswidget, etc
 
         this.sinkEvents(0x00001 | 0x00002); // TODO
 
-        //this.parent(opts); // TODO
         this.super__constructor(opts); // TODO
     },
 

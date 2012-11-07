@@ -16,10 +16,10 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-// SGWT-UI Namespace (using this.gwt.ui for now):
-this.gwt.ui = this.gwt.ui || { }
+// SGWT-UI Namespace:
+this.SGWT.UI = this.SGWT.UI || { }
 
-gwt.ui.setStyleName = function(element, style, add) {
+SGWT.UI.setStyleName = function(element, style, add) {
     var oldStyle = DOM.getAttribute(element, "className");
     if (oldStyle == null) {
         oldStyle = "";
@@ -41,19 +41,18 @@ gwt.ui.setStyleName = function(element, style, add) {
 TODO **/
 }
 
-gwt.ui.Applier = gwt.Base.extend({
+SGWT.UI.Applier = SGWT.Base.extend({
     constructor : function(opt) {
         // TODO: apply opt properties
     },
 });
 
-gwt.ui.UIObject = gwt.ui.Applier.extend({
+SGWT.UI.UIObject = SGWT.UI.Applier.extend({
     constructor : function(opts) {
         // do not initialise element, here, to null, whatever you do.
         // there are circumstances where UIObject.__init__ is the last
         // thing that is done in derived classes, where this.setElement
         // will _already_ have been called.
-        //this.parent(opts);
         this.super__constructor(opts);
     },
 
@@ -114,7 +113,7 @@ gwt.ui.UIObject = gwt.ui.Applier.extend({
 
 });
 
-gwt.ui.Widget = gwt.ui.UIObject.extend({
+SGWT.UI.Widget = SGWT.UI.UIObject.extend({
     //  Base class for most of the UI classes.  This class provides basic services
     //  used by any Widget, including management of parents and adding/removing the
     //  event handler association with the DOM.
@@ -125,7 +124,6 @@ gwt.ui.Widget = gwt.ui.UIObject.extend({
         this.layoutData = null;
         this.contextMenu = null;
 
-        //this.parent(opts);
         this.super__constructor(opts);
     },
 

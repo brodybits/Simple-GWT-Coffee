@@ -13,14 +13,13 @@
 # limitations under the License.
 
 # Imports:
-HTML = gwt.ui.HTML
-Button = gwt.ui.Button
+HTML = SGWT.UI.HTML
+Button = SGWT.UI.Button
 
-HorizontalPanel = gwt.ui.HorizontalPanel
-VerticalPanel = gwt.ui.VerticalPanel
-DockPanel = gwt.ui.DockPanel
-DockDirection = gwt.ui.DockDirection
-RootPanel = gwt.ui.RootPanel
+HorizontalPanel = SGWT.UI.HorizontalPanel
+VerticalPanel = SGWT.UI.VerticalPanel
+DockPanel = SGWT.UI.DockPanel
+DockDirection = SGWT.UI.DockDirection
 
 class TestButton extends Button
     constructor: (html) ->
@@ -48,5 +47,5 @@ testPanel.add (new HTML "<b><i>EAST</i> dock</b>"), DockDirection.EAST
 testPanel.add (new TestButton "Test Button"), DockDirection.CENTER
 testPanel.add southPanel, DockDirection.SOUTH
 
-RootPanel().add testPanel
+SGWT.UI.RootPanel().add testPanel
 

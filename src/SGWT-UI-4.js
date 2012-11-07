@@ -16,9 +16,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-gwt.ui.AbsolutePanel = gwt.ui.ComplexPanel.extend({
+SGWT.UI.AbsolutePanel = SGWT.UI.ComplexPanel.extend({
     constructor : function(opts) {
-//alert("new abs panel");
         // TODO: check for Element option
         var element = DOM.createDiv();
         this.setElement(element);
@@ -26,12 +25,10 @@ gwt.ui.AbsolutePanel = gwt.ui.ComplexPanel.extend({
         //DOM.setStyleAttribute(self.getElement(), "position", "relative")
         //DOM.setStyleAttribute(self.getElement(), "overflow", "hidden")
 
-        //this.parent(opts);
         this.super__constructor(opts);
     },
 
     add : function(widget, container) {
-//alert("abs panel add");
         //this.parent(widget, this.getElement());
         this.insert(widget, this.getElement(), this.children.length);
         // TODO ...
@@ -40,11 +37,9 @@ gwt.ui.AbsolutePanel = gwt.ui.ComplexPanel.extend({
     // TODO ...
 });
 
-gwt.ui.AbsoluteRootPanel = gwt.ui.AbsolutePanel.extend({
+SGWT.UI.AbsoluteRootPanel = SGWT.UI.AbsolutePanel.extend({
     constructor : function(element, opts) {
-//alert("new root panel");
         // TODO: AbsolutePanel.init(...)
-        //this.parent(opts);
         this.super__constructor(opts);
         if (element === null) {
             //# avoid having CSS styles position:relative and hidden set on body
@@ -57,25 +52,25 @@ gwt.ui.AbsoluteRootPanel = gwt.ui.AbsolutePanel.extend({
     // TODO ...
 });
 
-gwt.ui.rootPanels = [];
+rootPanels = [];
 
-gwt.ui.manageRootPanel = function(panel, id) {
+manageRootPanel = function(panel, id) {
     // TODO ?
-    //if len(gwt.ui.rootPanels) < 1:
+    //if len(SGWT.UI.rootPanels) < 1:
     //    panelManager = RootPanelManager()
     //    Window.addWindowCloseListener(panelManager)
 
     // TODO :
-    //gwt.ui.rootPanels[id] = panel;
-    gwt.ui.rootPanels[0] = panel;
+    //rootPanels[id] = panel;
+    rootPanels[0] = panel;
     return panel;
 };
 
-gwt.ui.RootPanel = function(id) {
+SGWT.UI.RootPanel = function(id) {
     element = null;
 
     // TODO ...
 
-    return gwt.ui.manageRootPanel(new gwt.ui.AbsoluteRootPanel(element), id);
+    return manageRootPanel(new SGWT.UI.AbsoluteRootPanel(element), id);
 };
 

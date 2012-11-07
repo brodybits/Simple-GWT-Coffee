@@ -16,7 +16,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-gwt.ui.DockDirection =
+SGWT.UI.DockDirection =
     CENTER  : "center"
     EAST    : "east"
     NORTH   : "north"
@@ -36,7 +36,7 @@ MyLayoutData = (dir) ->
     vAlign      : "top"
     width       : ""
 
-class gwt.ui.DockPanel extends gwt.ui.CellPanel
+class SGWT.UI.DockPanel extends SGWT.UI.CellPanel
 
     constructor: (opts) ->
         #TODO: style/spacing/padding
@@ -51,7 +51,7 @@ class gwt.ui.DockPanel extends gwt.ui.CellPanel
         super(opts)
 
     add : (widget, direction) ->
-        if direction == gwt.ui.DockDirection.CENTER
+        if direction == SGWT.UI.DockDirection.CENTER
             #TODO: check only 1 center
             @center = widget
 
@@ -76,9 +76,9 @@ class gwt.ui.DockPanel extends gwt.ui.CellPanel
         colCount = 1
         for child in @dock_children
             dir = child.getLayoutData().direction
-            if dir == gwt.ui.DockDirection.NORTH or dir == gwt.ui.DockDirection.SOUTH
+            if dir == SGWT.UI.DockDirection.NORTH or dir == SGWT.UI.DockDirection.SOUTH
                 rowCount += 1
-            else if dir == gwt.ui.DockDirection.EAST or dir == gwt.ui.DockDirection.WEST
+            else if dir == SGWT.UI.DockDirection.EAST or dir == SGWT.UI.DockDirection.WEST
                 colCount += 1
 
         rows = []
@@ -103,30 +103,30 @@ class gwt.ui.DockPanel extends gwt.ui.CellPanel
             DOM.setAttribute(layout.td, "width", layout.width)
             DOM.setAttribute(layout.td, "height", layout.height)
 
-            if layout.direction == gwt.ui.DockDirection.NORTH
+            if layout.direction == SGWT.UI.DockDirection.NORTH
                 DOM.insertChild(rows[northRow].tr, td, rows[northRow].center)
                 @appendAndMaybeAdopt(td, child.getElement(), beingAdded)
                 DOM.setAttribute(td, "colSpan", eastCol - westCol + 1)
                 northRow += 1
-            else if layout.direction == gwt.ui.DockDirection.SOUTH
+            else if layout.direction == SGWT.UI.DockDirection.SOUTH
                 DOM.insertChild(rows[southRow].tr, td, rows[southRow].center)
                 @appendAndMaybeAdopt(td, child.getElement(), beingAdded)
                 DOM.setAttribute(td, "colSpan", eastCol - westCol + 1)
                 southRow -= 1
-            else if layout.direction == gwt.ui.DockDirection.WEST
+            else if layout.direction == SGWT.UI.DockDirection.WEST
                 row = rows[northRow]
                 DOM.insertChild(row.tr, td, row.center)
                 row.center += 1
                 @appendAndMaybeAdopt(td, child.getElement(), beingAdded)
                 DOM.setAttribute(td, "rowSpan", southRow - northRow + 1)
                 westCol += 1
-            else if layout.direction == gwt.ui.DockDirection.EAST
+            else if layout.direction == SGWT.UI.DockDirection.EAST
                 row = rows[northRow]
                 DOM.insertChild(row.tr, td, row.center)
                 @appendAndMaybeAdopt(td, child.getElement(), beingAdded)
                 DOM.setAttribute(td, "rowSpan", southRow - northRow + 1)
                 eastCol -= 1
-            else if layout.direction == gwt.ui.DockDirection.CENTER
+            else if layout.direction == SGWT.UI.DockDirection.CENTER
                 centerTd = td
 
         if @center != null

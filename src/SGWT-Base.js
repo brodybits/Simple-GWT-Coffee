@@ -12,16 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-// SGWT Namespace (using gwt for now):
-this.gwt = this.gwt || { }
-
-// Real SGWT Namespace for new Base class:
+// SGWT Namespace:
 this.SGWT = this.SGWT || { }
-
-// XXX OLD VERSION:
-// Base class, extended for all other GWT classes:
-// (using AJS$Class for now):
-//gwt.Base = new AJS$Class({});
 
 /**
  ** Making base classes for inheritance.
@@ -134,34 +126,6 @@ var MyBase = (function (_super) {
     return MyBase;
 })(SuperBase);
 
-gwt.Base = MyBase;
-//SGWT.Base = MyBase;
-
-// simple test code here:
-/** START of simple test code:
-
-alert("a1a");
-
-//var Test1 = MyBase.extend({constructor : function() { alert("c1"); }, f1: function() { alert("f1"); } });
-//var Test1 = MyBase.extend({constructor : function(p1) { alert("c1 " + p1); }, f1: function(p1) { alert("f1 " + p1); } });
-var Test1 = MyBase.extend({constructor : function(p1) { alert("c1 " + p1); }, f1: function(p1) { alert("f1 " + p1); }, f2: function() {alert("f2");} });
-
-alert("a2");
-
-//var t1 = new Test1();
-var t1 = new Test1("P1");
-alert("a2a");
-t1.f1("p1");
-
-//var Test2 = Test1.extend({constructor : function() { alert("c2"); this.f1(); alert("c2a");this.parent2(); }, f1: function() { alert("f1 extended"); }, parent1:function() {alert("p1");} });
-var Test2 = Test1.extend({constructor : function() { alert("c2"); this.f1(); alert("c2a");this.super__constructor("my opt"); }, f1: function() { alert("f1 extended"); } });
-alert("a3a");
-var t2 = new Test2();
-//t2.f1();
-t2.f2();
-
-var Test3 = Test2.extend({constructor : function() { alert("c3"); this.super__constructor(); } });
-var t3 = new Test3();
-
-/** END of simple test code **/
+// export SGWT.Base:
+SGWT.Base = MyBase;
 
