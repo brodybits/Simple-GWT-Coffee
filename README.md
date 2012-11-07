@@ -7,5 +7,5 @@ The goal of this project is to enable HTML5 application developers to develop GU
 
 ## Sample project
 
-Within the `src` subdirectory simply run the shell script `render-test-1.coffee` and then open the generated page `test1.html`.
+Within the `test` subdirectory simply run the shell script `render-test-1.coffee` and then open the generated page `test1.html`.
 
