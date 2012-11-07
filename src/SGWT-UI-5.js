@@ -28,7 +28,8 @@ gwt.ui.CellPanel = gwt.ui.ComplexPanel.extend({
         this.padding = null;
         DOM.appendChild(this.table, this.body);
 
-        this.parent(opts);
+        //this.parent(opts);
+        this.super__constructor(opts);
     },
 
     getTable : function() {
@@ -53,7 +54,8 @@ gwt.ui.HorizontalPanel = gwt.ui.CellPanel.extend({
         //self.horzAlign = HasHorizontalAlignment.ALIGN_LEFT
         //self.vertAlign = HasVerticalAlignment.ALIGN_TOP
 
-        this.parent(opts);
+        //this.parent(opts);
+        this.super__constructor(opts);
 
         this.tableRow = DOM.createTR();
         DOM.appendChild(this.getBody(), this.tableRow);
@@ -74,7 +76,8 @@ gwt.ui.HorizontalPanel = gwt.ui.CellPanel.extend({
         var td = DOM.createTD();
         DOM.insertChild(this.tableRow, td, beforeIndex);
 
-        this.parent(widget, td, beforeIndex);
+        //this.parent(widget, td, beforeIndex);
+        gwt.ui.ComplexPanel.prototype.insert.call(this, widget, td, beforeIndex);
 
         //TODO //self.setCellHorizontalAlignment(widget, self.horzAlign)
         //self.setCellVerticalAlignment(widget, self.vertAlign)
@@ -99,7 +102,8 @@ gwt.ui.VerticalPanel = gwt.ui.CellPanel.extend({
         //self.horzAlign = HasHorizontalAlignment.ALIGN_LEFT
         //self.vertAlign = HasVerticalAlignment.ALIGN_TOP
 
-        this.parent(opts);
+        //this.parent(opts);
+        this.super__constructor(opts);
     },
 
     // TODO ...
@@ -120,7 +124,8 @@ gwt.ui.VerticalPanel = gwt.ui.CellPanel.extend({
         DOM.insertChild(this.getBody(), tr, beforeIndex);
         DOM.appendChild(tr, td);
 
-        this.parent(widget, td, beforeIndex);
+        //this.parent(widget, td, beforeIndex);
+        gwt.ui.ComplexPanel.prototype.insert.call(this, widget, td, beforeIndex);
 
         //TODO //self.setCellHorizontalAlignment(widget, self.horzAlign)
         //self.setCellVerticalAlignment(widget, self.vertAlign)

@@ -53,7 +53,8 @@ gwt.ui.UIObject = gwt.ui.Applier.extend({
         // there are circumstances where UIObject.__init__ is the last
         // thing that is done in derived classes, where this.setElement
         // will _already_ have been called.
-        this.parent(opts);
+        //this.parent(opts);
+        this.super__constructor(opts);
     },
 
     getAbsoluteLeft : function() {
@@ -124,7 +125,8 @@ gwt.ui.Widget = gwt.ui.UIObject.extend({
         this.layoutData = null;
         this.contextMenu = null;
 
-        this.parent(opts);
+        //this.parent(opts);
+        this.super__constructor(opts);
     },
 
     getLayoutData : function() {

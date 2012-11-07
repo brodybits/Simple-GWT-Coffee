@@ -20,7 +20,8 @@ gwt.ui.Panel = gwt.ui.Widget.extend({
     constructor : function(opts) {
         this.children = [];
 
-        this.parent(opts);
+        //this.parent(opts);
+        this.super__constructor(opts);
     },
 
     getChildren : function() {
@@ -47,14 +48,16 @@ gwt.ui.Panel = gwt.ui.Widget.extend({
         } else {
             element = widget.getElement();
             widget.setParent(null);
-            parentElement = DOM.getParent(element);
+            var parentElement = DOM.getParent(element);
             if (parentElement)
                 DOM.removeChild(parentElement, element);
         }
     },
 
     adopt : function(widget, container) {
+//alert("a 1");
         if (container) {
+//alert("a 2");
             widget.removeFromParent();
             DOM.appendChild(container, widget.getElement());
         }
@@ -85,7 +88,8 @@ gwt.ui.ComplexPanel = gwt.ui.Panel.extend({
     //  Superclass for widgets with multiple children.
 
     constructor : function(opts) {
-        this.parent(opts);
+        //this.parent(opts);
+        this.super__constructor(opts);
     },
 
     add : function(widget, container) {
@@ -109,6 +113,7 @@ gwt.ui.ComplexPanel = gwt.ui.Panel.extend({
     },
 
     insert : function(widget, container, beforeIndex) {
+//alert("i 1");
         if (widget.getParent() == this)
             return
 

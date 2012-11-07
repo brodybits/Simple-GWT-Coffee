@@ -19,6 +19,7 @@
 gwt.ui.Label = gwt.ui.Widget.extend({
     // TODO: handlers, innertext
     constructor : function(text, wordWrap, opts) {
+//alert("new label");
         //TODO: check for element arg, style
 
         if (this.getElement() == null) {
@@ -30,7 +31,8 @@ gwt.ui.Label = gwt.ui.Widget.extend({
 
         //TODO ...
 
-        this.parent(opts);
+        //this.parent(opts);
+        this.super__constructor(opts);
     },
 
     // TODO ...
@@ -40,6 +42,7 @@ gwt.ui.Label = gwt.ui.Widget.extend({
 gwt.ui.HTML = gwt.ui.Label.extend({
     // TODO: handlers
     constructor : function(html, wordWrap, opts) {
+//alert("new HTML");
         //TODO: check for element arg, style
 
         if (this.getElement() == null) {
@@ -50,7 +53,8 @@ gwt.ui.HTML = gwt.ui.Label.extend({
         if (html != null)
             DOM.setInnerHTML(this.getElement(), html);
 
-        this.parent(null, null, opts); // TODO
+        //this.parent(null, null, opts); // TODO
+        this.super__constructor(null, null, opts); // TODO
     },
 
     // TODO ...
@@ -72,7 +76,8 @@ gwt.ui.Button = gwt.ui.Widget.extend({ // TODO, base, focuswidget, etc
 
         this.sinkEvents(0x00001 | 0x00002); // TODO
 
-        this.parent(opts); // TODO
+        //this.parent(opts); // TODO
+        this.super__constructor(opts); // TODO
     },
 
     // TODO ...

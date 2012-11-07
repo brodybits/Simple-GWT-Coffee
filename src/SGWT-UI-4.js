@@ -18,6 +18,7 @@
 
 gwt.ui.AbsolutePanel = gwt.ui.ComplexPanel.extend({
     constructor : function(opts) {
+//alert("new abs panel");
         // TODO: check for Element option
         var element = DOM.createDiv();
         this.setElement(element);
@@ -25,11 +26,14 @@ gwt.ui.AbsolutePanel = gwt.ui.ComplexPanel.extend({
         //DOM.setStyleAttribute(self.getElement(), "position", "relative")
         //DOM.setStyleAttribute(self.getElement(), "overflow", "hidden")
 
-        this.parent(opts);
+        //this.parent(opts);
+        this.super__constructor(opts);
     },
 
     add : function(widget, container) {
-        this.parent(widget, this.getElement());
+//alert("abs panel add");
+        //this.parent(widget, this.getElement());
+        this.insert(widget, this.getElement(), this.children.length);
         // TODO ...
     },
 
@@ -38,8 +42,10 @@ gwt.ui.AbsolutePanel = gwt.ui.ComplexPanel.extend({
 
 gwt.ui.AbsoluteRootPanel = gwt.ui.AbsolutePanel.extend({
     constructor : function(element, opts) {
+//alert("new root panel");
         // TODO: AbsolutePanel.init(...)
-        this.parent(opts);
+        //this.parent(opts);
+        this.super__constructor(opts);
         if (element === null) {
             //# avoid having CSS styles position:relative and hidden set on body
             //TODO//element = this.getBodyElement();
